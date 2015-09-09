@@ -43,6 +43,7 @@ class LoginViewController: UIViewController {
                 println(errorString)
             } else {
                 println("signup success")
+                self.performSegueWithIdentifier("firstSegue", sender: self)
             }
         }
     }
@@ -56,6 +57,7 @@ class LoginViewController: UIViewController {
             if user != nil {
                 // Do stuff after successful login.
                 println("login success")
+                self.performSegueWithIdentifier("firstSegue", sender: self)
             } else {
                 // The login failed. Check error to see why.
                 if let error = error {

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1A9AC8AF756F96DBEEB7E4A9 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A1DD2EE3657A6719E1B098 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		9D2145A61BA0E87100304706 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2145A51BA0E87100304706 /* LoginViewController.swift */; };
+		9D2145A81BA0F55500304706 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2145A71BA0F55500304706 /* ChatViewController.swift */; };
 		9D63D2A91BA0E75500B47FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D63D2A81BA0E75500B47FB1 /* AppDelegate.swift */; };
 		9D63D2AE1BA0E75500B47FB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D63D2AC1BA0E75500B47FB1 /* Main.storyboard */; };
 		9D63D2B01BA0E75500B47FB1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D63D2AF1BA0E75500B47FB1 /* Images.xcassets */; };
@@ -30,6 +31,7 @@
 		41C7A92E658274A02C4C699F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6C94008748484D2988A62BBF /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9D2145A51BA0E87100304706 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9D2145A71BA0F55500304706 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		9D63D2A31BA0E75500B47FB1 /* lab_parse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lab_parse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D63D2A71BA0E75500B47FB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D63D2A81BA0E75500B47FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				9D2145A51BA0E87100304706 /* LoginViewController.swift */,
+				9D2145A71BA0F55500304706 /* ChatViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D2145A61BA0E87100304706 /* LoginViewController.swift in Sources */,
+				9D2145A81BA0F55500304706 /* ChatViewController.swift in Sources */,
 				9D63D2A91BA0E75500B47FB1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

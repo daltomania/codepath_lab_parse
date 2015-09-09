@@ -50,11 +50,49 @@
                     <connections>
                         <outlet property="passwordField" destination="fNj-Q9-eMY" id="eAi-GQ-obn"/>
                         <outlet property="usernameField" destination="a9f-Kb-8wU" id="qNM-f5-KQO"/>
+                        <segue destination="gao-rQ-BOZ" kind="modal" identifier="firstSegue" id="FN3-xH-xlz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="201" y="320"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="qaQ-aZ-mCb">
+            <objects>
+                <viewController id="gao-rQ-BOZ" customClass="ChatViewController" customModule="lab_parse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pCp-Ry-hcQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="z8u-NX-4fo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kOJ-1N-abr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tdK-y8-sxd">
+                                <rect key="frame" x="16" y="13" width="288" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sgy-3r-hmm">
+                                <rect key="frame" x="16" y="51" width="36" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendChat:" destination="gao-rQ-BOZ" eventType="touchUpInside" id="nzJ-xb-QUZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="chatTextField" destination="tdK-y8-sxd" id="jYP-In-iPb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAG-LP-Thf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="558" y="320"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
