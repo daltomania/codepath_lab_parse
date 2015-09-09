@@ -11,14 +11,60 @@ import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBAction func loginAction(sender: AnyObject) {
+        signin()
+    }
+    
+    @IBAction func signupAction(sender: AnyObject) {
+        signup()
+    }
+    
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func signup() {
+        var user = PFUser()
+        user.username = usernameField.text
+        user.password = passwordField.text
+        
+        user.signUpInBackgroundWithBlock {
+            (succeeded: Bool, error: NSError?) -> Void in
+            if let error = error {
+                let errorString = error.userInfo?["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+                println(errorString)
+            } else {
+                println("signup success")
+            }
+        }
+    }
+    
+    func signin() {
+        let username = usernameField.text
+        let password = passwordField.text
+
+        PFUser.logInWithUsernameInBackground(username, password: password) {
+            (user: PFUser?, error: NSError?) -> Void in
+            if user != nil {
+                // Do stuff after successful login.
+                println("login success")
+            } else {
+                // The login failed. Check error to see why.
+                if let error = error {
+                    let errorString = error.userInfo?["error"] as? NSString
+                    println("signin error")
+                    println(errorString)
+                }
+            }
+        }
     }
     
 
