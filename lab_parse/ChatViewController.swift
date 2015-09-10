@@ -13,8 +13,8 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var messages:[PFObject]?
 
     @IBOutlet weak var chatTextField: UITextField!
-    
     @IBOutlet weak var tableView: UITableView!
+
     @IBAction func sendChat(sender: AnyObject) {
         var message = PFObject(className: "Message")
         message["text"] = chatTextField.text
@@ -50,13 +50,13 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func fetchMessages() {
         var query = PFQuery(className:"Message")
         query.orderByDescending("createdAt")
+        query.includeKey("user")
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             
             if error == nil {
-                // The find succeeded.
-                println("Successfully retrieved \(objects!.count) scores.")
-                // Do something with the found objects
+                self.messages = objects as? [PFObject]
+                self.tableView.reloadData()
                 if let objects = objects as? [PFObject] {
                     for object in objects {
                         println(object.objectId)
@@ -79,6 +79,19 @@ class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! MessageCell
+        let message = self.messages?[indexPath.row]
+        
+        if let message = message {
+            if let user = message["user"] as? PFUser {
+                if let userName = user.username {
+                    cell.userNameLabel.text = userName
+                }
+            }
+            
+            if let text = message["text"] as? String {
+                cell.userMessageLabel.text = text
+            }
+        }
         
         return cell
     }

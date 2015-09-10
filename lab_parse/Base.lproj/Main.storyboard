@@ -93,20 +93,32 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Djo-sV-cYP" id="w6F-nH-c5r">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sklar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1P-Wu-KbF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="sklar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1P-Wu-KbF">
                                                     <rect key="frame" x="8" y="8" width="38" height="21"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="omg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0q-sG-7eA">
-                                                    <rect key="frame" x="54" y="8" width="35" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="omg this is so crazy why is this message so long i can't even" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r0q-sG-7eA">
+                                                    <rect key="frame" x="54" y="6" width="243" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="r0q-sG-7eA" secondAttribute="trailing" constant="8" id="Bht-BJ-FLb"/>
+                                                <constraint firstItem="q1P-Wu-KbF" firstAttribute="leading" secondItem="w6F-nH-c5r" secondAttribute="leading" constant="8" id="CT8-nb-LVw"/>
+                                                <constraint firstItem="r0q-sG-7eA" firstAttribute="leading" secondItem="q1P-Wu-KbF" secondAttribute="trailing" constant="8" id="NAA-Oe-tJY"/>
+                                                <constraint firstAttribute="bottom" secondItem="r0q-sG-7eA" secondAttribute="bottom" constant="8" id="bfr-RI-Xja"/>
+                                                <constraint firstItem="q1P-Wu-KbF" firstAttribute="top" secondItem="w6F-nH-c5r" secondAttribute="top" constant="8" id="fMX-Sb-cby"/>
+                                                <constraint firstItem="r0q-sG-7eA" firstAttribute="top" secondItem="w6F-nH-c5r" secondAttribute="top" constant="6" id="wlP-mo-Xvs"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="userMessageLabel" destination="r0q-sG-7eA" id="IHx-E0-oQo"/>
+                                            <outlet property="userNameLabel" destination="q1P-Wu-KbF" id="5e9-jC-rFe"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
