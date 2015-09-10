@@ -9,10 +9,12 @@
 import UIKit
 import Parse
 
-class ChatViewController: UIViewController {
+class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    var messages:[PFObject]?
 
     @IBOutlet weak var chatTextField: UITextField!
     
+    @IBOutlet weak var tableView: UITableView!
     @IBAction func sendChat(sender: AnyObject) {
         var message = PFObject(className: "Message")
         message["text"] = chatTextField.text
@@ -29,6 +31,8 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -63,6 +67,20 @@ class ChatViewController: UIViewController {
                 println("Error: \(error!) \(error!.userInfo!)")
             }
         }
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let messages = messages {
+            return messages.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("MessageCell", forIndexPath: indexPath) as! MessageCell
+        
+        return cell
     }
     
     /*
