@@ -14,9 +14,9 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var chatTextField: UITextField!
     
     @IBAction func sendChat(sender: AnyObject) {
-        let chatText = chatTextField.text
         var message = PFObject(className: "Message")
-        message["text"] = chatText
+        message["text"] = chatTextField.text
+        message["user"] = PFUser.currentUser()
         message.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
@@ -29,8 +29,10 @@ class ChatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: "onTimer", userInfo: nil, repeats: true)
-
     }
 
     override func didReceiveMemoryWarning() {
